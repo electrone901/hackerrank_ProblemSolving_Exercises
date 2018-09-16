@@ -19,7 +19,7 @@ function birthday(arr, target, slices) {
 	for(var i=0; i<arr.length; i++) {
 		var startIndex = i;
 		for(var j=0; j<slices; j++) {
-			sum += arr[startIndex + j];
+			sum += arr[startIndex + j ];
 		}
 		if(sum == target) {
 			counter++;
