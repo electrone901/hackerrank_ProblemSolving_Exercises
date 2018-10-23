@@ -2,6 +2,10 @@
  * Performs a binary search on the  array. This method can either be
  * @param {*} searchElement The item to search for within the array.
  * @return {Number} The index of the element which defaults to -1 when not found.
+ * PSEUDO:
+ * - The key is to set up the low <= high and the mid =  low + high/2
+ * - Then just check if value is great or less than mid and then reassign the numbers 
+ *
  */
 
 
