@@ -44,5 +44,6 @@ function isBalanced(str) {
     return true;
   }
 }
-
 isBalanced('{(){}}');
+
+
