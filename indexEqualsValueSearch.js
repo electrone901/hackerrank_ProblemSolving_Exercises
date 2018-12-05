@@ -1,6 +1,5 @@
 /*
 
-3478220676 nancy rivera
 Array Index & Element Equality
 The naive solution is to iterate over all the values in the input array and return an index i for which the condition arr[i] == i is met. This takes a linear, O(N), time complexity.
 
