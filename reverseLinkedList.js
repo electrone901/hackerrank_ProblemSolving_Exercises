@@ -33,11 +33,47 @@ function reverseLinkedList(head) {
 	let cur = head;
 
 	while(cur) {
+		// saves cur to be use for next iteration
 		let temp = cur;
+		// moves cur to next
 		cur = temp.next;
+		// assign next to prev
 		temp.next = prev;
+		// assign pre to cur node
 		prev = temp;
 	}
 	return prev;
 }
 reverseLinkedList(head.val);
+
+
+
+// recursively
+var reverseLinkedListRecursively = function(head) {
+	if(!head) return null;
+
+	let reverse = (cur, prev) => {
+		// assigning last node to the head
+		if(cur.next === null) {
+			head = cur;
+			head.next = prev;
+			return head;
+		}
+		// otherwise we call reverse again until cur.next = null
+		let next = cur.next;
+		cur.next = prev;
+		reverse(cur, prev);
+	}
+	// calling reverse 
+	reverse(head, null);
+	return head;
+}
+
+
+
+
+
+
+
+
+
