@@ -1,0 +1,49 @@
+function flattenDictionary(dict) {
+  let res = {};
+  for(let key in dict){
+    if (typeof(dict[key]) == 'object'){
+      let makeObj  = flattenDictionary(dict[key])
+      for(let x in makeObj){
+        if (key.length == 0){
+         res[x] = makeObj[x] 
+        } else if (x.length == 0){
+          res[key] = makeObj[x]
+        } else {
+          res[key + "." + x] = makeObj[x]
+        }
+        
+      }
+    } else {
+      res[key] = dict[key]
+    }
+  }
+  return res;
+}
+/*
+function recursive(dict, res, temp){
+  for(let key in dict){
+    let value = dict[key]
+    /*
+    if (typeof(value) !== 'object') {
+      temp.push([key, value])
+    } else {
+      recursive(value, res, temp)
+      for(let i = 0; i < temp.length; i++){
+        let new_key = key + '.' + temp[i][0]
+        res[new_key] = temp[i][1]
+      }
+      temp = []
+    } 
+    
+    if (typeof(value) == 'object'){
+      makeObj  = recursive(dict[key])
+      for(let x in makeObj){
+        res[key + "." + x] = makeObj[x]
+      }
+    }
+  }
+  return temp
+}
+*/
+
+flattenDictionary({ 'x' : { 'key1' : '1', 'key2': '2' }})

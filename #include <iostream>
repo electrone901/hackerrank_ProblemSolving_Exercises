@@ -1,0 +1,96 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void flip(vector<int>& arr, int k) {
+  for (int i = 0; i < k/2; i++) {
+    swap(arr[i], arr[k - 1 - i]);
+  }
+}
+
+// k = 5, k/2 = 2, i: [0, 1]
+// k = 6, k/2 = 3, i: [0, 1, 2]
+
+int getMaxIndex(const vector<int>& arr, int maxIndexToConsider) {
+  int currentIndex = 0;
+  
+  for (int i = 1; i <= maxIndexToConsider; i++) {
+    if (arr[i] > arr[currentIndex]) {
+      currentIndex = i;
+    }
+  }
+  
+  return currentIndex;
+}
+
+vector<int> pancakeSort(const vector<int>& arr) 
+{
+  vector<int> sortedArr = arr;
+  
+  for (int i = 0; i < sortedArr.size(); i++) {
+    int maxNumIndex = getMaxIndex(sortedArr, sortedArr.size() - 1 - i);
+    flip(sortedArr, maxNumIndex + 1);
+    flip(sortedArr, sortedArr.size() - i);
+  }
+  
+  return sortedArr;
+}
+
+int main() {
+  return 0;
+}
+
+
+// 1 5 4 3 2 (5)
+// 2 3 4 5 1 (4)
+// 5 4 3 2 1 (5)
+// 1 2 3 4 5
+
+// 3 2 1 | 4 5
+
+// 2 3 5 4 1
+// 5 3 2 4 1
+// 1 4 2 3 5
+// 4 1 2 3 5
+// 3 2 1 4 5
+// 1 2 3 4 5
+
+// k - biggest num => flip(arr, k); flip(arr, arr.size())
+// O(n^2)
+
+// 5 3 2 4 1
+
+// let me know once you're here :)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
